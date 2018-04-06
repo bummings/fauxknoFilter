@@ -79,6 +79,12 @@ document.addEventListener('click', e => {
   }
 });
 
+// revert filters
+revertBtn.addEventListener('click', e => {
+  Caman('#canvas', img, function() {
+    this.revert();
+  });
+});
 
 // upload file
 uploadFile.addEventListener('change', (e) => {
@@ -101,3 +107,28 @@ uploadFile.addEventListener('change', (e) => {
     }
   }, false);
 });
+
+
+// Download edited image
+downloadBtn.addEventListener('click', e => {
+  const fileExtension = fileName.slice(-4);
+  let newFileName;
+
+  if (fileExtension === '.jpg' || fileExtension === '.png') {
+    newFileName = fileName.substring(0, fileName.length - 4) + '-edited.jpg';
+  }
+  download(canvas, newFileName);
+});
+
+// Download function
+function download (canvas, filename) {
+  let e;
+  const link = document.createElement('a');
+
+  link.download = filename;
+  link.href = canvas.toDataURL('image/jpeg', 0.8);
+
+  e = new MouseEvent('click');
+  link.dispatchEvent(e);
+}
+
