@@ -131,4 +131,3 @@ function download (canvas, filename) {
   e = new MouseEvent('click');
   link.dispatchEvent(e);
 }
-
