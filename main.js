@@ -61,7 +61,7 @@ document.addEventListener('click', e => {
       }); //////////////// EFX: row 2
     } else if (e.target.classList.contains('crossprocess-add')) {
       Caman('#canvas', img, function() {
-        this.crossprocess().render();
+        this.crossProcess().render();
       });
     } else if (e.target.classList.contains('pinhole-add')) {
       Caman('#canvas', img, function() {
@@ -73,7 +73,7 @@ document.addEventListener('click', e => {
       });
     } else if (e.target.classList.contains('hermajesty-add')) {
       Caman('#canvas', img, function() {
-        this.hermajesty().render();
+        this.pinhole().render();
       });
     }
   }
